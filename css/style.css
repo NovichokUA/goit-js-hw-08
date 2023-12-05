@@ -9,3 +9,8 @@
     flex-wrap: wrap;
     padding: 0;
 }
+
+.gallery-link {
+    width: 100%;
+    display: block;
+}
