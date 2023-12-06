@@ -67,21 +67,52 @@ const images = [
 
 const ulGallery = document.querySelector(".gallery");
 
-const imgGalleryList = images.map((image) => {
-  const { preview, original, description } = image;
-  let strHtml = `<li class='gallery-item'>
- <a class='gallery-link' href='${original}'>
-       <img class='gallery-image'
-           src='${preview}'
-           data-source='${original}'
-           alt='${description}'
-       />
- </a>
-</li>`;
-  return strHtml;
-});
+// const imgGalleryList = images.map((image) => {
+//   const { preview, original, description } = image;
+//   let strHtml = `<li class='gallery-item'>
+//  <a class='gallery-link' href='${original}'>
+//        <img class='gallery-image'
+//            src='${preview}'
+//            data-source='${original}'
+//            alt='${description}'
+//        />
+//  </a>
+// </li>`;
+//   return strHtml;
+// });
 
-ulGallery.insertAdjacentHTML("beforeend", imgGalleryList.join(""));
+// const imgGalleryList = images.reduce(
+//   (html, image) =>
+//     html +
+//     `<li class='gallery-item'>
+//    <a class='gallery-link' href='${image.original}'>
+//          <img class='gallery-image'
+//              src='${image.preview}'
+//              data-source='${image.original}'
+//              alt='${image.description}'
+//          />
+//    </a>
+//   </li>`,
+//   "",
+// );
+
+ulGallery.insertAdjacentHTML(
+  "beforeend",
+  (imgGalleryList = images.reduce(
+    (html, image) =>
+      html +
+      `<li class='gallery-item'>
+   <a class='gallery-link' href='${image.original}'>
+         <img class='gallery-image'
+             src='${image.preview}'
+             data-source='${image.original}'
+             alt='${image.description}'
+         />
+   </a>
+  </li>`,
+    "",
+  )),
+);
 
 const listItems = document.querySelectorAll(".gallery-item");
 for (const listItem of listItems) {
